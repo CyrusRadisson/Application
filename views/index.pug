@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Online Store
+    link(rel="stylesheet" href="../css/styless.css")
+  body
+    header
+      .logo Handicraft Store
+      nav
+        ul
+          li: a(href="#home") Home
+          li: a(href="#categories") Categories
+          li: a(href="#featured") Featured
+          li: a(href="#contact") Contact
+    section#hero
+      h1 Welcome to Handicraft Store
+      p Discover unique handmade treasures from around the world!
+      button(onclick="exploreCategories()") Explore Categories
+  
+    h2 Our Categories
+  // Link to each category page
+  section#categories
+    .category#middleEast
+      a(href="/category/middle_eastern")
+        img(src="../images/MiddleEastern.webp" alt="Middle Eastern")
+        h3 Middle Eastern Handicrafts
+        h4 which contains Iran, Afghanistan, and Pakistan Handicrafts
+
+    .category#caribbean
+      a(href="/category/caribbean")
+        img(src="../images/Carabian.webp" alt="Caribbean")
+        h3 Caribbean Handicrafts
+        h4 which contains Haiti and other regions
+
+    .category#taiwanese
+      a(href="/category/taiwanese")
+        img(src="../images/taiwanese (2).webp" alt="Taiwanese")
+        h3 Taiwanese Handicrafts
+        h4 Traditional Taiwanese handicrafts
+
+
+    
+    script(src="/js/scripts.js")
+

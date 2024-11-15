@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title #{category} Handicrafts
+    link(rel="stylesheet" href="/css/styless.css")
+
+  body
+    header
+      h1 #{category} Handicrafts
+      a(href="/") Back to Home
+      .logo Handicraft Store
+      nav
+        ul
+          li: a(href="#home") Home
+          li: a(href="#categories") Categories
+          li: a(href="#featured") Featured
+          li: a(href="#contact") Contact
+
+    section#product-list
+      h2 #{category} Products
+      .product-container
+        // Product list will be dynamically populated here
+        each product in products
+          .product
+            img(src=product.img alt=product.name)
+            h3= product.name
+            p= product.description
+
+    script(src="/js/scripts.js")
