@@ -1,4 +1,4 @@
-const express = require('express');
+sconst express = require('express');
 const path = require('path');
 const app = express();
 
@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Route for the homepage
-app.get('/', (req, res) => {
+app.get('/views', (req, res) => {
     res.render('index'); // Render homepage (index.pug)
 });
 
