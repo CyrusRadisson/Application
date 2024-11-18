@@ -1,76 +1,33 @@
-// Sample data for featured products
-const featuredProducts = [
-    { name: "Persian Carpet", img: "../images/IranCarpet.webp", description: "Beautiful Persian carpet." },
-    { name: "Turkish Tiles", img: "../images/Tiles.webp", description: "Exquisite Turkish tiles." },
-    { name: "Afghan Clothes", img: "../images/images.jpg", description: "Unique Afghan attire." }
+// Select all cards and the description container
+const cards = document.querySelectorAll('.card');
+const descriptionContainer = document.getElementById('category-description');
+const relatedImagesContainer = document.querySelector('.related-images');
+
+// Example image URLs (replace these with your dynamic data)
+const images = [
+  "../images/Iran.webp",
+  "../images/Afghanistan.webp",
+  "../images/Pakistan.webp"
 ];
 
-// Data for each category
-const categories = {
-    "middle_eastern": [
-        { name: "Persian Carpet", img: "../images/IranCarpet.webp", description: "Beautiful Persian carpet." },
-        { name: "Turkish Tiles", img: "../images/Tiles.webp", description: "Exquisite Turkish tiles." }
-    ],
-    "caribbean": [
-        { name: "Jamaican Basket", img: "../images/images.jpg", description: "Handwoven Jamaican basket." },
-        { name: "Caribbean Necklace", img: "../images/caribbean_necklace.jpg", description: "Unique shell necklace." }
-    ],
-    "taiwanese": [
-        { name: "Taiwan Lantern", img: "../images/taiwan_lantern.jpg", description: "Traditional Taiwanese lantern." },
-        { name: "Taipei Teapot", img: "../images/taipei_teapot.jpg", description: "Famous teapot from Taipei." }
-    ]
-};
+// Add hover event listeners to each card
+cards.forEach((card) => {
+  card.addEventListener('mouseenter', () => {
+    const categoryName = card.querySelector('.card-title').textContent;
+    const description = card.getAttribute('data-description');
+    const images = card.getAttribute('data-images').split(',');
 
-// Function to load featured products on page load
-function loadFeaturedProducts() {
-    const featuredContainer = document.getElementById('featured-products');
-    featuredContainer.innerHTML = ''; // Clear any previous content
+    descriptionContainer.querySelector('h3').textContent = categoryName;
 
-    featuredProducts.forEach(product => {
-        const productDiv = document.createElement('div');
-        productDiv.classList.add('featured-product');
-        productDiv.innerHTML = `
-            <img src="${product.img}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-        `;
-        featuredContainer.appendChild(productDiv);
+    relatedImagesContainer.innerHTML = '';
+    images.forEach((src) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Related image';
+      relatedImagesContainer.appendChild(img);
     });
-}
+  });
 
-// Function to dynamically load products for a selected category
-function loadCategory(category) {
-    const container = document.getElementById('featured-products');
-    container.innerHTML = ''; // Clear previous content
-
-    // Check if the category exists in the data
-    if (categories[category]) {
-        const header = document.createElement('h2');
-        header.textContent = category === 'middle_eastern' ? 'Middle Eastern Handicrafts' :
-                             category === 'caribbean' ? 'Caribbean Handicrafts' : 'Taiwanese Handicrafts';
-        header.style.textAlign = 'center';
-        container.appendChild(header);
-
-        // Loop through the products in the selected category
-        categories[category].forEach(product => {
-            const productDiv = document.createElement('div');
-            productDiv.classList.add('featured-product');
-            productDiv.innerHTML = `
-                <img src="${product.img}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>${product.description}</p>
-            `;
-            container.appendChild(productDiv);
-        });
-    } else {
-        console.error("Category not found:", category);
-    }
-}
-
-// Function to scroll to the categories section
-function exploreCategories() {
-    document.getElementById('categories').scrollIntoView({ behavior: 'smooth' });
-}
-
-// Load featured products when the page loads
-document.addEventListener('DOMContentLoaded', loadFeaturedProducts);
+  card.addEventListener('mouseleave', () => {
+  });
+});
