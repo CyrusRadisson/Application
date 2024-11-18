@@ -3,47 +3,91 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title Online Store
-    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
-    link(rel="stylesheet" href="../css/styless.css")
+    title Mozhan Art 
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+    link(rel="stylesheet", href="../css/styless.css")
+    link(rel="icon", type="image/png", href="../images/MA.png")
+    
+      
   body
+    // HEADER: Navbar
     header
-      .logo Handicraft Store
+      h1 Mozhan Art
       nav
         ul
-          li: a(href="#home") Home
+          li: a(href="/") Home
           li: a(href="#categories") Categories
           li: a(href="#featured") Featured
           li: a(href="#contact") Contact
-    section#hero
-      h1 Welcome to Handicraft Store
-      p Discover unique handmade treasures from around the world!
-      button(onclick="exploreCategories()") Explore Categories
-  
-    h2 Our Categories
-  // Link to each category page
-  section#categories
-    .category#middleEast
-      a(href="/category/middle_eastern")
-        img(src="../images/MiddleEastern.webp" alt="Middle Eastern")
-        h3 Middle Eastern Handicrafts
-        h4 which contains Iran, Afghanistan, and Pakistan Handicrafts
 
-    .category#caribbean
-      a(href="/category/caribbean")
-        img(src="../images/Carabian.webp" alt="Caribbean")
-        h3 Caribbean Handicrafts
-        h4 which contains Haiti and other regions
+    // HERO SECTION
+    section#hero.text-center.bg-light.py-5
+      h1.Bold Welcome to Mozhan Art
+      button.btn.btn-primary.btn-lg(onclick="#categories") Explore Categories
 
-    .category#taiwanese
-      a(href="/category/taiwanese")
-        img(src="../images/taiwanese (2).webp" alt="Taiwanese")
-        h3 Taiwanese Handicrafts
-        h4 Traditional Taiwanese handicrafts
+    // MAIN CONTENT
+    main.container.my-5
+      h2.text-center.mb-4 Our Categories
+      .row#categories
+        //- Middle Eastern Category
+        .col-md-4
+          .card(data-description="This category contains Iran, Afghanistan, and Pakistan handicrafts."
+                data-images="../images/Iran.webp,../images/Afghanistan.webp,../images/Pakistan.webp")
+            a(href="/category/middle_eastern")
+              img.card-img-top.img-fluid(src="../images/MiddleEastern.webp", alt="Middle Eastern")
+            .card-body.text-center
+              h3#head.card-title Iranian Handicrafts
 
+        //- Caribbean Category
+        .col-md-4
+          .card(data-description="This category contains vibrant handicrafts from Haiti and other regions."
+                data-images="../images/haiti-small.webp,../images/caribbean-small.webp")
+            a(href="/category/caribbean")
+              img.card-img-top.img-fluid(src="../images/Carabian.webp", alt="Caribbean")
+            .card-body.text-center
+              h3#head.card-title Caribbean Handicrafts
+
+        //- Taiwanese Category
+        .col-md-4
+          .card(data-description="This category contains traditional Taiwanese handmade treasures."
+                data-images="../images/taiwan-small.webp,../images/taiwan-art-small.webp")
+            a(href="/category/taiwanese")
+              img.card-img-top.img-fluid(src="../images/taiwan.webp", alt="Taiwanese")
+            .card-body.text-center
+              h3#head.card-title Taiwanese Handicrafts
+
+      .section#description-container
+        h3#head.text-center Category Description
+        div#category-description.text-center
+          p Hover to show
+          .related-images
+
+
+    // FOOTER
+    footer.footer-custom.py-4.mt-5
+      .container
+        .row#contact
+          .col-md-6
+            h4 Why Choose Us?
+            p
+              | At Handicraft Store, we offer a curated selection of authentic, handmade treasures from across the world. 
+              | Supporting artisans and preserving traditions is our passion.
+          .col-md-6
+            h4 Contact Us
+            ul.list-unstyled
+              li
+                strong Address: 
+                |  123 Handicraft Lane, Craft City, World
+              li
+                strong Phone: 
+                | +123-456-7890
+              li
+                strong Email: 
+                a(href="mailto:mozhanart@handicraftstore.com") info@handicraftstore.com
+        .text-center.mt-3
+          p.mb-0 &copy; 2024 Mozhan Art. All rights reserved.
 
     script(src="https://code.jquery.com/jquery-3.5.1.min.js")
     script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")
     script(src="/js/scripts.js")
-
