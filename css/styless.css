@@ -7,6 +7,23 @@ body {
     color: #333;
 }
 
+/* Base style for Mozhan Art */
+header .brand {
+    font-size: 2.5rem;
+    color: white;
+    text-decoration: none;
+    position: relative; /* Position needed for pseudo-elements */
+    overflow: visible; /* Ensure particles aren't clipped */
+    transition: transform 0.3s; /* Add a smooth scaling effect */
+}
+
+/* Hover effect to slightly enlarge Mozhan Art */
+header .brand:hover {
+    color: rgb(225, 225, 161); /* Change text color */
+    transform: scale(1.1); /* Slightly enlarge */
+}
+
+
 header {
     display: flex;
     justify-content: space-between;
@@ -24,24 +41,30 @@ header nav ul {
 
 header nav ul li a {
     color: #fff;
-    text-decoration: none;
+    text-decoration:#948954;
 }
 
+header nav ul li a:hover{
+    color: #948954;
+    transform: scale(1.1);
+}
+
+/* Hero Section */
 #hero {
     text-align: center;
     padding: 50px;
     background-image: url('../images/afghan.webp'); /* Path to your background image */
-    background-size: cover;         /* Ensures the image covers the entire section */
-    background-position: center;    /* Centers the image within the section */
-    background-repeat: no-repeat;   /* Prevents the image from repeating */
-    color: #fff;                    /* Changes text color to white for contrast */
-    position: relative; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
 }
 
 #hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: 4em;
+    margin-bottom: 30px;
 }
+
 
 #hero button {
     background-color: #eb9f4faa;
@@ -54,55 +77,106 @@ header nav ul li a {
 }
 
 #hero button:hover {
-    background-color: #555;
-}
-body h2{
-    text-align: center;
+    background-color: #948954;
 }
 
-#categories{
+/* Categories Section */
+#categories {
     margin-left: 50px;
 }
-.category {
+
+/* Card Styles */
+.card {
+    background-color: #e3f2fd; /* Light blue color */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; /* For hover text overlay */
+}
+
+.card:hover {
+    background-color: #bbdefb; /* Slightly darker blue on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    transition: transform 0.3s; /* Smooth image zoom */
+    border-radius: 20px;
+}
+
+.card:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Hover text bar overlay */
+.card::before {
+    content: attr(data-hover); /* Dynamic text from data-hover attribute */
+    position: absolute;
+    bottom: -50px; /* Start hidden below the card */
+    left: 0;
+    right: 0;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    transition: bottom 0.3s ease-in-out;
+}
+
+.card:hover::before {
+    bottom: 0; /* Slide up into view */
+}
+
+/* Description Section */
+#description-container {
+    margin-top: 20px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+}
+
+#description-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#description-container p {
+    margin: 0;
+    padding: 0;
+}
+
+#description-container::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: black; /* The line color */
+    margin-top: 15px;
+}
+
+.related-images img {
     display: inline-block;
-    width: 25%;
-    text-align: center;
-    padding: 10px;
-    margin: 10px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    cursor: pointer;
+    width: 150px; /* Increase the width of the images */
+    height: 150px; /* Increase the height of the images */
+    margin: 15px; /* Add space between images */
+    border-radius: 8px; /* Slightly rounded corners for aesthetics */
+    border: 2px solid #ddd; /* Optional: Add a thin border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.2s; /* Smooth zoom effect on hover */
 }
 
-.category img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
+.related-images img:hover {
+    transform: scale(1.2); /* Make the image slightly bigger on hover */
 }
 
-.product-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
+.card {
+    border-radius: 20px; /* Adjust this value for more or less curve */
+  }
 
-.product {
-    width: 200px;
-    text-align: center;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.product img {
-    width: 100%;
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 10px;
-}
+  .footer-custom {
+    background-color: #F5E1DA; /* Muted Gold */
+    color: #4B0082; /* Deep Plum Text */
+  }
+  .footer-custom h4 {
+    color: #4B0082;
+  }
