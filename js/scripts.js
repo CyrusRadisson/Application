@@ -3,13 +3,6 @@ const cards = document.querySelectorAll('.card');
 const descriptionContainer = document.getElementById('category-description');
 const relatedImagesContainer = document.querySelector('.related-images');
 
-// Example image URLs (replace these with your dynamic data)
-const images = [
-  "../images/Iran.webp",
-  "../images/Afghanistan.webp",
-  "../images/Pakistan.webp"
-];
-
 // Add hover event listeners to each card
 cards.forEach((card) => {
   card.addEventListener('mouseenter', () => {
