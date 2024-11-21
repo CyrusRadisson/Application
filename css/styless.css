@@ -180,3 +180,110 @@ header nav ul li a:hover{
   .footer-custom h4 {
     color: #4B0082;
   }
+/* General Category Page Styling */
+body.category-page {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Items Wrapper */
+.items-wrapper {
+    gap: 20px; /* Space between cards */
+    padding: 0 15px; /* Horizontal padding inside the container */
+    justify-content: flex-start; /* Align items neatly in rows */
+}
+
+/* Card Styles */
+.category-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    width: 30%; /* Ensure cards are 30% of the row */
+    margin: 10px; /* Add margin around each card */
+}
+
+.category-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.category-card .image-container {
+    width: 100%;
+    height: 200px; /* Fixed height for all images */
+    overflow: hidden;
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images fit within the container */
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Card Body */
+.category-card .card-body {
+    padding: 10px;
+}
+
+.category-card h5.card-title {
+    font-size: 1rem; /* Smaller title */
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.category-card p.card-text {
+    margin: 2px 0;
+    color: #555;
+    font-size: 0.85rem; /* Smaller text */
+}
+
+.category-card p.card-description {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Buy Button */
+.category-card .btn {
+    margin: 5px;
+    padding: 5px 15px;
+    font-size: 0.85rem; /* Smaller button size */
+    border-radius: 5px;
+}
+
+.category-card .btn-primary {
+    background-color: #5a9;
+    border: none;
+    color: #fff;
+}
+
+.category-card .btn-primary:hover {
+    background-color: #4a8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .category-card {
+        width: 45%; /* Make cards 45% width on medium screens */
+    }
+
+    .items-wrapper {
+        gap: 15px; /* Reduce gap for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .category-card {
+        width: 100%; /* Full-width on extra small screens */
+    }
+}
