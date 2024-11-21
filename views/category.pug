@@ -4,9 +4,11 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title #{category} Handicrafts
-    link(rel="stylesheet" href="/css/styless.css")
+    link(rel="stylesheet", href="/css/styless.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
+    link(rel="icon", type="image/png", href="../images/MA.png")
 
-  body
+  body.category-page
     header
       a.brand(href="/") Mozhan Art
       nav
@@ -16,14 +18,24 @@ html(lang="en")
           li: a(href="#featured") Featured
           li: a(href="/#contact") Contact
 
-    section#product-list
-      h2 #{category} Products
-      .product-container
-        // Product list will be dynamically populated here
+    section#category-products.container.my-5
+      h2.text-center.mb-4 #{category} Products
+      .items-wrapper.d-flex.flex-wrap.justify-content-center
         each product in products
-          .product
-            img(src=product.img alt=product.name)
-            h3= product.name
-            p= product.description
+          .category-card
+            .image-container
+              img.card-img-top(src=product.img alt=product.name)
+            .card-body
+              h5.card-title.text-center= product.name
+              p.card-text.text-center.text-muted Price: $#{product.price}
+              p.card-text.text-center.text-muted Made by: #{product.madeBy}
+              hr
+              p.card-description.text-muted= product.description
+              .text-center.mt-2
+                a.btn.btn-primary(href="/buy/#{product.name}") Buy Now
+
+    footer.footer-custom.py-4.mt-5
+      .container.text-center
+        p.mb-0 &copy; 2024 Mozhan Art - Bringing Art to Life
 
     script(src="/js/scripts.js")
