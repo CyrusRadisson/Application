@@ -2,21 +2,41 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// Sample data for each category (replace with a database or API if available)
 const categoryData = {
-    middle_eastern: [
-        { name: "Persian Carpet", img: "/images/persian_carpet.jpg", description: "Beautiful Persian carpet." },
-        { name: "Turkish Tiles", img: "/images/turkish_tiles.jpg", description: "Exquisite Turkish tiles." }
+    Iran: [
+        {
+            name: "Persian Carpet",
+            img: "/images/persian_carpet.jpg",
+            description: "Beautifully handcrafted Persian carpet.",
+            price: 500,
+            madeBy: "Iranian Artisans"
+        },
+        {
+            name: "Turkish Tiles",
+            img: "/images/turkish_tiles.jpg",
+            description: "Exquisite Turkish ceramic tiles.",
+            price: 150,
+            madeBy: "Masters from Iznik"
+        }
     ],
-    caribbean: [
-        { name: "Jamaican Basket", img: "/images/jamaican_basket.jpg", description: "Handwoven Jamaican basket." },
-        { name: "Caribbean Necklace", img: "/images/caribbean_necklace.jpg", description: "Unique shell necklace." }
-    ],
-    taiwanese: [
-        { name: "Taiwan Lantern", img: "/images/taiwan_lantern.jpg", description: "Traditional Taiwanese lantern." },
-        { name: "Taipei Teapot", img: "/images/taipei_teapot.jpg", description: "Famous teapot from Taipei." }
+    Caribbean: [
+        {
+            name: "Jamaican Basket",
+            img: "/images/jamaican_basket.jpg",
+            description: "Handwoven basket made with natural fibers.",
+            price: 50,
+            madeBy: "Artisans in Jamaica"
+        },
+        {
+            name: "Caribbean Necklace",
+            img: "/images/caribbean_necklace.jpg",
+            description: "Unique shell necklace crafted by hand.",
+            price: 75,
+            madeBy: "Local craftsmen in Haiti"
+        }
     ]
 };
+
 
 // Set the view engine to Pug
 app.set('view engine', 'pug');
