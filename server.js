@@ -6,33 +6,49 @@ const categoryData = {
     Iran: [
         {
             name: "Persian Carpet",
-            img: "/images/persian_carpet.jpg",
+            img: "../images/IranCarpet.webp",
             description: "Beautifully handcrafted Persian carpet.",
             price: 500,
             madeBy: "Iranian Artisans"
         },
         {
             name: "Turkish Tiles",
-            img: "/images/turkish_tiles.jpg",
-            description: "Exquisite Turkish ceramic tiles.",
+            img: "../images/IranTiles.webp",
+            description: "Exquisite Iranian ceramic tiles.",
             price: 150,
-            madeBy: "Masters from Iznik"
+            madeBy: "Masters from Isfahan"
         }
     ],
     Caribbean: [
         {
             name: "Jamaican Basket",
-            img: "/images/jamaican_basket.jpg",
+            img: "../images/Tiles.webp",
             description: "Handwoven basket made with natural fibers.",
             price: 50,
             madeBy: "Artisans in Jamaica"
         },
         {
             name: "Caribbean Necklace",
-            img: "/images/caribbean_necklace.jpg",
+            img: "../images/lapislazuli.webp",
             description: "Unique shell necklace crafted by hand.",
             price: 75,
             madeBy: "Local craftsmen in Haiti"
+        }
+    ],
+    Taiwanese: [
+        {
+            name: "Taiwanese clothes",
+            img: "../images/AfghanClothes.webp",
+            description: "Handwoven dress made of cotton.",
+            price: 250,
+            madeBy: "Ali"
+        },
+        {
+            name: "magnet",
+            img: "../images/headerpic.jpg",
+            description: "handmade magnet",
+            price: 75,
+            madeBy: "Local craftsmen in Taipei"
         }
     ]
 };
@@ -44,6 +60,11 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+// Serve static files from the "APPLICATION" directory
+app.use(express.static(path.join(__dirname, 'css')));
+
 
 // Route for the homepage
 app.get('/', (req, res) => {
