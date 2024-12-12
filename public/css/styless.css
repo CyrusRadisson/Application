@@ -1,0 +1,289 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Base style for Mozhan Art */
+header .brand {
+    font-size: 2.5rem;
+    color: white;
+    text-decoration: none;
+    position: relative; /* Position needed for pseudo-elements */
+    overflow: visible; /* Ensure particles aren't clipped */
+    transition: transform 0.3s; /* Add a smooth scaling effect */
+}
+
+/* Hover effect to slightly enlarge Mozhan Art */
+header .brand:hover {
+    color: rgb(225, 225, 161); /* Change text color */
+    transform: scale(1.1); /* Slightly enlarge */
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+header nav ul {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration:#948954;
+}
+
+header nav ul li a:hover{
+    color: #948954;
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+#hero {
+    text-align: center;
+    padding: 50px;
+    background-image: url('../images/afghan.webp'); /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+#hero h1 {
+    font-size: 4em;
+    margin-bottom: 30px;
+}
+
+
+#hero button {
+    background-color: #eb9f4faa;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+#hero button:hover {
+    background-color: #948954;
+}
+
+/* Categories Section */
+#categories {
+    margin-left: 50px;
+}
+
+/* Card Styles */
+.card {
+    background-color: #e3f2fd; /* Light blue color */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; /* For hover text overlay */
+}
+
+.card:hover {
+    background-color: #bbdefb; /* Slightly darker blue on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    transition: transform 0.3s; /* Smooth image zoom */
+    border-radius: 20px;
+}
+
+.card:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Hover text bar overlay */
+.card::before {
+    content: attr(data-hover); /* Dynamic text from data-hover attribute */
+    position: absolute;
+    bottom: -50px; /* Start hidden below the card */
+    left: 0;
+    right: 0;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    transition: bottom 0.3s ease-in-out;
+}
+
+.card:hover::before {
+    bottom: 0; /* Slide up into view */
+}
+
+/* Description Section */
+#description-container {
+    margin-top: 20px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+}
+
+#description-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#description-container p {
+    margin: 0;
+    padding: 0;
+}
+
+#description-container::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: black; /* The line color */
+    margin-top: 15px;
+}
+
+.related-images img {
+    display: inline-block;
+    width: 150px; /* Increase the width of the images */
+    height: 150px; /* Increase the height of the images */
+    margin: 15px; /* Add space between images */
+    border-radius: 8px; /* Slightly rounded corners for aesthetics */
+    border: 2px solid #ddd; /* Optional: Add a thin border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.2s; /* Smooth zoom effect on hover */
+}
+
+.related-images img:hover {
+    transform: scale(1.2); /* Make the image slightly bigger on hover */
+}
+
+.card {
+    border-radius: 20px; /* Adjust this value for more or less curve */
+  }
+
+  .footer-custom {
+    background-color: #F5E1DA; /* Muted Gold */
+    color: #4B0082; /* Deep Plum Text */
+  }
+  .footer-custom h4 {
+    color: #4B0082;
+  }
+/* General Category Page Styling */
+body.category-page {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Items Wrapper */
+.items-wrapper {
+    gap: 20px; /* Space between cards */
+    padding: 0 15px; /* Horizontal padding inside the container */
+    justify-content: flex-start; /* Align items neatly in rows */
+}
+
+/* Card Styles */
+.category-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    width: 30%; /* Ensure cards are 30% of the row */
+    margin: 10px; /* Add margin around each card */
+}
+
+.category-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.category-card .image-container {
+    width: 100%;
+    height: 200px; /* Fixed height for all images */
+    overflow: hidden;
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images fit within the container */
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Card Body */
+.category-card .card-body {
+    padding: 10px;
+}
+
+.category-card h5.card-title {
+    font-size: 1rem; /* Smaller title */
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.category-card p.card-text {
+    margin: 2px 0;
+    color: #555;
+    font-size: 0.85rem; /* Smaller text */
+}
+
+.category-card p.card-description {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Buy Button */
+.category-card .btn {
+    margin: 5px;
+    padding: 5px 15px;
+    font-size: 0.85rem; /* Smaller button size */
+    border-radius: 5px;
+}
+
+.category-card .btn-primary {
+    background-color: #5a9;
+    border: none;
+    color: #fff;
+}
+
+.category-card .btn-primary:hover {
+    background-color: #4a8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .category-card {
+        width: 45%; /* Make cards 45% width on medium screens */
+    }
+
+    .items-wrapper {
+        gap: 15px; /* Reduce gap for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .category-card {
+        width: 100%; /* Full-width on extra small screens */
+    }
+}
