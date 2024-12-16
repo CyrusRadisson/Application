@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const cors = require('cors');
 
 const categoryData = {
     Iran: [
@@ -54,6 +55,9 @@ const categoryData = {
 };
 
 
+app.use(cors());
+
+
 // Set the view engine to Pug
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -71,17 +75,35 @@ app.get('/', (req, res) => {
     res.render('index'); // Render homepage (index.pug)
 });
 
-// Route for each category page (using a dynamic category parameter)
-app.get('/category/:category', (req, res) => {
+app.get('/api/category/:category', (req, res) => {
     const category = req.params.category;
     const products = categoryData[category];
 
     if (products) {
-        res.render('category', { category: category.replace('_', ' '), products }); // Render category.pug
+        res.json(products);
     } else {
+        res.status(404).json({ error: "Category not found" });
+    }
+});
+app.get('/category/:category', (req, res) => {
+    const category = req.params.category; // Extract category from URL
+    const products = categoryData[category]; // Retrieve category data
+
+    if (products) {
+        // Render a Pug template, passing category data
+        res.render('category', { category, products });
+    } else {
+        // Send 404 for unknown categories
         res.status(404).send("Category not found");
     }
 });
+
+
+
+app.get('/api/categories', (req, res) => {
+    res.json(Object.keys(categoryData));
+});
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;
