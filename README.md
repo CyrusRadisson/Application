@@ -19,5 +19,9 @@ Server-side rendering with Pug
 Cross-platform app support with Electron
 Responsive UI using CSS + JavaScript
 
+## Homepage
+<img width="1436" height="820" alt="home" src="https://github.com/user-attachments/assets/26c5cc2f-8d9f-4932-812b-aebe6e453a48" />
+
+
 
        
